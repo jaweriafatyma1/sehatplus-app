@@ -1,55 +1,58 @@
-import { Menu } from 'lucide-react';
-
-export default function PremiumHome() {
-  return (
-    <div className="min-h-screen font-poppins bg-gray-50">
-
-      {/* ✅ Top Bar with Logo & Menu */}
-      <div className="flex justify-between items-center p-4">
-        <div className="flex items-center gap-2">
-          <img
-            src="/logo.png"
-            alt="App Logo"
-            className="h-8 w-8 object-contain"
-          />
-          <span className="text-lg font-semibold text-gray-800">SehatPlus</span>
+export default function PremiumPatient() {
+    const features = [
+      {
+        title: "Alert!",
+        description: "Quickly send alerts in emergency situations to nearby contacts or hospitals.",
+        img: "/alert.png",
+        onClick: () => alert("🚨 Alert!"),
+      },
+      {
+        title: "Emergency Contact",
+        description: "Instantly connect with your pre-saved emergency contact during critical moments.",
+        img: "/contact.png",
+        onClick: () => alert("🚨 Emergency Contact"),
+      },
+      {
+        title: "Records",
+        description: "Access and manage your medical records securely anytime, anywhere.",
+        img: "/records.png",
+        onClick: () => alert("🚨 Records"),
+      },
+    ];
+  
+    return (
+      <div className="min-h-screen bg-gray-100 py-12 font-poppins">
+        <h1 className="text-center text-3xl font-bold text-black mb-10">Premium Patient</h1>
+  
+        <div className="flex flex-wrap justify-center gap-6 px-4">
+          {features.map((feature, index) => (
+            <div
+              key={index}
+              className="p-4 bg-white rounded-xl shadow-lg max-w-xs w-full flex flex-col justify-between"
+            >
+              <img
+                src={feature.img}
+                alt={feature.title}
+                className="rounded-md max-h-40 w-full object-cover"
+              />
+              <div className="flex-1 mt-4">
+                <p className="text-[#6C0B14] text-xl font-semibold ml-1">
+                  {feature.title}
+                </p>
+                <p className="text-gray-600 text-sm mt-2 ml-1">
+                  {feature.description}
+                </p>
+              </div>
+              <button
+                onClick={feature.onClick}
+                className="mt-6 w-full bg-[#6C0B14] hover:bg-[#58595B] text-white font-bold py-2 px-4 rounded-xl transition-all duration-200"
+              >
+                Use
+              </button>
+            </div>
+          ))}
         </div>
-        <button className="p-2 rounded-md hover:bg-gray-100">
-          <Menu className="h-6 w-6 text-gray-800" />
-        </button>
       </div>
-
-      {/* ✅ Your Existing Content */}
-      <div className="text-center mt-10">
-        <h1 className="text-black font-bold text-3xl">Premium Patient</h1>
-
-        <div className="mt-10">
-          <button
-            className="bg-[#6C0B14] hover:bg-[#58595B] text-white font-bold py-3 px-28 rounded-xl shadow-lg text-lg transition-all duration-200"
-            onClick={() => alert('🚨 Alert!')}
-          >
-            Alert!
-          </button>
-        </div>
-
-        <div className="mt-10">
-          <button
-            className="bg-[#6C0B14] hover:bg-[#58595B] text-white font-bold py-3 px-10 rounded-xl shadow-lg text-lg transition-all duration-200"
-            onClick={() => alert('🚨 Emergency Contact')}
-          >
-            Emergency Contact
-          </button>
-        </div>
-
-        <div className="mt-10">
-          <button
-            className="bg-[#6C0B14] hover:bg-[#58595B] text-white font-bold py-3 px-24 rounded-xl shadow-lg text-lg transition-all duration-200"
-            onClick={() => alert('🚨 Records')}
-          >
-            Records
-          </button>
-        </div>
-      </div>
-    </div>
-  );
-}
+    );
+  }
+  
