@@ -1,3 +1,4 @@
+import {Link} from "react-router-dom";
 export default function PremiumPatient() {
     const features = [
       {
@@ -52,12 +53,16 @@ export default function PremiumPatient() {
                   {feature.description}
                 </p>
               </div>
-              <button
+              <div><p>
+          <Link to="">
+          <button
                 onClick={feature.onClick}
                 className="mt-6 w-full bg-[#6C0B14] hover:bg-[#58595B] text-white font-bold py-2 px-4 rounded-xl transition-all duration-200"
               >
                 Use
               </button>
+      </Link></p></div>
+              
             </div>
           ))}
           </div>

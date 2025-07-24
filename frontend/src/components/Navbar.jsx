@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-
+import {Link} from "react-router-dom";
 function Navbar() {
   const [open, setOpen] = useState(false);
 
@@ -27,12 +27,15 @@ function Navbar() {
       {/* Desktop Menu */}
       <div className="hidden sm:flex items-center gap-8">
         
-
-
-
-        <button className="cursor-pointer px-8 py-2 bg-[#6C0B14] hover:bg-[#58595B] transition text-white rounded-full">
+       <div><p>
+          <Link to="/login" >
+          <button className="cursor-pointer px-8 py-2 bg-[#6C0B14] hover:bg-[#58595B] transition text-white rounded-full">
           Login
         </button>
+      </Link></p></div>
+
+
+        
       </div>
 
       {/* Mobile Menu Toggle */}

@@ -1,20 +1,19 @@
 
 import logo from "../../public/logo.png";
-// import login1 from "../../public/images/login1.jpg";
+import login from "../../public/login.png";
 import {Link} from "react-router-dom";
-// import {Player } from  "@lottiefiles/react-lottie-player";
-// import animationData from './login-animation.json';
+
 
 export default function Login(){
     return(
-<div className=" bg-rose-100 ">
-         {/* <div className="w-1/2 hidden md:block">
+<div className=" flex ">
+         <div className="w-1/2 hidden md:block">
         <img
-          src= {login1}
+          src= {login}
           alt="Login Illustration"
-          className="ml-52 mt-10 h-130 w-96  object-cover"
+          className="ml-52 mt-10 h-120 w-90  object-cover"
         />
-      </div> */}
+      </div>
      
        
         <div  className=" font-poppins ">
@@ -39,7 +38,11 @@ export default function Login(){
 
          </div>
          <div className="items-center justify-between pl-8  gap-4">
-         <button className="border ml-10 border-gray-300 h-10 w-50 text-white rounded-full  bg-[#6C0B14]">Login</button>
+          <div><p>
+          <Link to="/premium">
+          <button className="border ml-10 border-gray-300 h-10 w-50 text-white rounded-full  bg-[#6C0B14]">Login</button>
+      </Link></p></div>
+         
          {/* <button className="border border-gray-300 h-7 w-30 text-[#6C0B14] rounded-full  bg-white">Login</button> */}
          </div>
          <div className="text-center mt-4"><p>don't have accout!{""}
