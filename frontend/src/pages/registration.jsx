@@ -1,21 +1,21 @@
 import {Link} from "react-router-dom";
 import logo from  "../../public/logo.png";
-// import login1 from  "../../public/images/login1.jpg";
+import login from  "../../public/login.png";
 // import login from"../assets/login.png";
 export default function Registration(){
     return(
-      <div className=" bg-rose-100">
-         {/* <div className="w-1/2 hidden md:block">
+      <div className="flex ">
+         <div className="w-1/2 hidden md:block">
         <img
-          src= {login1}
+          src= {login}
           alt="Login Illustration"
-          className="ml-52 mt-10 h-130 w-96  object-cover"
+          className="ml-52 mt-10 h-120 w-90  object-cover"
         />
-      </div> */}
+      </div>
      
       
         <div  className="  font-poppins ">
-         <div className=" w-92 h-130 m-auto mt-10 ">
+         <div className=" w-92 h-130 m-auto ">
          {/* <div className="bg-rose-100 w-79 h-40 m-auto p-auto rounded-b-full"> */}
              {/* <div className="bg-gradient-to-r from-rose-300 w-60 h-30 m-auto p-auto rounded-b-full"> */}
          
@@ -26,7 +26,7 @@ export default function Registration(){
         <div >
          <h1 className="text-center text-2xl font-black" >Welcome to Registration Page</h1>
          <div className="input m-3 ml-10 ">
-            <input type="text" placeholder="enter name" className="focus:outline-[#6C0B14] border h-8 w-67 border-[#6C0B14] rounded px-3 "/>
+            <input type="text" placeholder="enter name" className=" focus:outline-[#6C0B14] border h-8 w-67 border-[#6C0B14] rounded px-3 "/>
          </div>
          <div className="input m-3 ml-10">
             <input type="digits" placeholder="enter contact number" className="focus:outline-[#6C0B14] border h-8 w-67 border-[#6C0B14] rounded px-3"/>
@@ -41,14 +41,19 @@ export default function Registration(){
             <input type="password" placeholder="enter password" className="focus:outline-[#6C0B14] border w-67 h-8 border-[#6C0B14] rounded px-3"/>
          </div>
          </div>
-         <div className="flex items-center justify-between pl-6  gap-4">
-         <button className="border border-gray-300 h-8 w-35 text-white rounded-full  bg-[#6C0B14]">Sign up</button>
+         <div className="items-center justify-between pl-8 gap-4">
+         
          
          
          <div><p>
           <Link to="/login" >
-        <button className="border  border-gray-300 mr-4 h-8 w-35 text-[#6C0B14] rounded-full bg-white">Login</button>
+          <button className="border border-gray-300 h-10 w-50 t-white rounded-full  bg-[#6C0B14]">Sign up</button>
       </Link></p></div>
+      <div className="text-center mt-4"><p>Have accout!{""}
+          <Link to="/login" className="text-blue-500 underline">
+        Go to Sign in
+      </Link></p></div>
+
 
          </div>
         </div>
