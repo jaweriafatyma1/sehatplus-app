@@ -12,7 +12,8 @@ import Root from './Root.jsx'
 import Home from './pages/Home.jsx';
 import PremiumHome from './pages/PremiumHome.jsx';
 import MapView from './pages/map.jsx';
-
+import Login from './pages/login.jsx';
+import Registration from './pages/registration.jsx';
 
 
 
@@ -23,7 +24,8 @@ import MapView from './pages/map.jsx';
     
     <Route path="/premium" element={<PremiumHome/>} />
     <Route path="/map" element={<MapView/>} />
-    
+    <Route path="/register" element={<Registration/>} />
+    <Route path="/login" element={<Login/>} />
     </Route>
   )
  )
