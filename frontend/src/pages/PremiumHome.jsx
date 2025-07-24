@@ -21,9 +21,18 @@ export default function PremiumPatient() {
     ];
   
     return (
-      <div className="min-h-screen bg-gray-100 py-12 font-poppins">
-        <h1 className="text-center text-3xl font-bold text-black mb-10">Premium Patient</h1>
-  
+      
+      <div className="min-h-screen flex flex-col bg-gray-100 font-poppins">
+        
+        <div className="w-full flex justify-center relative">
+          <img
+          src="./banner.jpg"
+          alt="Banner"
+          className="w-full h-130 object-cover rounded-b-lg shadow"
+          />
+        </div>
+        <div className="p-20">
+        <h1 className="text-center text-3xl font-bold text-[#6C0B14] mb-10">Premium Patient</h1>
         <div className="flex flex-wrap justify-center gap-6 px-4">
           {features.map((feature, index) => (
             <div
@@ -51,6 +60,7 @@ export default function PremiumPatient() {
               </button>
             </div>
           ))}
+          </div>
         </div>
       </div>
     );

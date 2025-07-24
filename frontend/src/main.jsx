@@ -9,16 +9,21 @@ import { createBrowserRouter, createRoutesFromElements,Route } from 'react-route
 import { RouterProvider } from 'react-router';
 
 import Root from './Root.jsx'
+import Home from './pages/Home.jsx';
 import PremiumHome from './pages/PremiumHome.jsx';
 import MapView from './pages/map.jsx';
+
 
 
 
  const router =createBrowserRouter(
   createRoutesFromElements(
     <Route path="/" element={<Root/>}>
-    <Route path="" element={<PremiumHome/>} />
-    <Route path="" element={<MapView/>} />
+      <Route path="" element={<Home/>} />
+    
+    <Route path="/premium" element={<PremiumHome/>} />
+    <Route path="/map" element={<MapView/>} />
+    
     </Route>
   )
  )

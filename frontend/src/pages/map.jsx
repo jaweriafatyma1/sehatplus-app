@@ -14,11 +14,11 @@ L.Icon.Default.mergeOptions({
 
 // ✅ Custom hospital icon
 const hospitalIcon = new L.Icon({
-  iconUrl: 'logo.png', // Reference from public directory
-  iconSize: [100, 100],                 // Adjust as needed
+  iconUrl: 'map-pin.svg', // Reference from public directory
+  iconSize: [30, 30],                 // Adjust as needed
   iconAnchor: [20, 40],
   popupAnchor: [0, -40],
-  shadowUrl: 'https://unpkg.com/leaflet@1.9.3/dist/images/marker-shadow.png',
+  shadowUrl: '',
   shadowSize: [41, 41],
   shadowAnchor: [13, 41],
 });

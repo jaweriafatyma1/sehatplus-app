@@ -18,11 +18,18 @@ function Navbar() {
         </div>
       </a>
 
+      <div className='hidden sm:flex items-center gap-8'>
+        <a href="#" className="text-gray-700 hover:text-red-900 font-bold">Home</a>
+        <a href="#" className="text-gray-700 hover:text-red-900 font-bold">About us</a>
+        <a href="#" className="text-gray-700 hover:text-red-900 font-bold">Contact Us</a>
+      </div>
+
       {/* Desktop Menu */}
       <div className="hidden sm:flex items-center gap-8">
-        <a href="#" className="text-gray-700 hover:text-gray-900">Home</a>
-        <a href="#" className="text-gray-700 hover:text-gray-900">About</a>
-        <a href="#" className="text-gray-700 hover:text-gray-900">Contact</a>
+        
+
+
+
         <button className="cursor-pointer px-8 py-2 bg-[#6C0B14] hover:bg-[#58595B] transition text-white rounded-full">
           Login
         </button>
