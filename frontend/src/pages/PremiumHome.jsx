@@ -1,38 +1,43 @@
-import {Link} from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import { href, Link } from "react-router-dom";
 export default function PremiumPatient() {
-    const features = [
-      {
-        title: "Alert!",
-        description: "Quickly send alerts in emergency situations to nearby contacts or hospitals.",
-        img: "/alert.png",
-        onClick: () => alert("🚨 Alert!"),
-      },
-      {
-        title: "Emergency Contact",
-        description: "Instantly connect with your pre-saved emergency contact during critical moments.",
-        img: "/contact.png",
-        onClick: () => alert("🚨 Emergency Contact"),
-      },
-      {
-        title: "Records",
-        description: "Access and manage your medical records securely anytime, anywhere.",
-        img: "/records.png",
-        onClick: () => alert("🚨 Records"),
-      },
-    ];
-  
-    return (
-      
-      <div className="min-h-screen flex flex-col bg-gray-100 font-poppins">
-        
-        <div className="w-full flex justify-center relative">
-          <img
+  const navigate = useNavigate();
+  const features = [
+    {
+      title: "Alert!",
+      description: "Quickly send alerts in emergency situations to nearby contacts or hospitals.",
+      img: "/alert.png",
+      onClick: () => alert("🚨 Alert generated"),
+      // path:"/",
+    },
+    {
+      title: "Emergency Contact",
+      description: "Instantly connect with your pre-saved emergency contact during critical moments.",
+      img: "/contact.png",
+      // onClick: () => alert("🚨 Emergency Contact"),
+      path:"/",
+    },
+    {
+      title: "Records",
+      description: "Access and manage your medical records securely anytime, anywhere.",
+      img: "/records.png",
+      // onClick: () => alert("🚨 Records"),
+      path:"/register",
+    },
+  ];
+
+  return (
+
+    <div className="min-h-screen flex flex-col bg-gray-100 font-poppins">
+
+      <div className="w-full flex justify-center relative">
+        <img
           src="./banner.jpg"
           alt="Banner"
           className="w-full h-130 object-cover rounded-b-lg shadow"
-          />
-        </div>
-        <div className="p-20">
+        />
+      </div>
+      <div className="p-20">
         <h1 className="text-center text-3xl font-bold text-[#6C0B14] mb-10">Premium Patient</h1>
         <div className="flex flex-wrap justify-center gap-6 px-4">
           {features.map((feature, index) => (
@@ -53,21 +58,24 @@ export default function PremiumPatient() {
                   {feature.description}
                 </p>
               </div>
-              <div><p>
-          <Link to="">
-          <button
-                onClick={feature.onClick}
+
+
+
+
+              <button
+                onClick={() => navigate(feature.path)}
                 className="mt-6 w-full bg-[#6C0B14] hover:bg-[#58595B] text-white font-bold py-2 px-4 rounded-xl transition-all duration-200"
               >
                 Use
               </button>
-      </Link></p></div>
-              
+
+
+
+
             </div>
           ))}
-          </div>
         </div>
       </div>
-    );
-  }
-  
+    </div>
+  );
+}

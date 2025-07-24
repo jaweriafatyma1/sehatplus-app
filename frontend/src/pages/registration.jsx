@@ -47,9 +47,9 @@ export default function Registration(){
          
          <div><p>
           <Link to="/login" >
-          <button className="border border-gray-300 h-10 w-50 t-white rounded-full  bg-[#6C0B14]">Sign up</button>
+          <button className="border border-gray-300 h-10 w-50 ml-9 t-white rounded-full  bg-[#6C0B14]">Sign up</button>
       </Link></p></div>
-      <div className="text-center mt-4"><p>Have accout!{""}
+      <div className="text-center mr-10"><p>Have accout!{""}
           <Link to="/login" className="text-blue-500 underline">
         Go to Sign in
       </Link></p></div>
