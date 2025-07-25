@@ -7,7 +7,6 @@ import 'leaflet/dist/leaflet.css';
 
 import { createBrowserRouter, createRoutesFromElements,Route } from 'react-router-dom';
 import { RouterProvider } from 'react-router';
-
 import Root from './Root.jsx'
 import Home from './pages/home.jsx';
 import PremiumHome from './pages/PremiumHome.jsx';
@@ -16,6 +15,8 @@ import AboutUs from './pages/AboutUs.jsx';
 import EmergencyContacts from './pages/EmergnencyContacts.jsx';
 import Login from './pages/login.jsx';
 import Registration from './pages/registration.jsx';
+import UploadReport from './pages/Upload.jsx';
+import Alert from './pages/alert.jsx';
 
 
 
@@ -29,7 +30,6 @@ import Registration from './pages/registration.jsx';
     <Route path="/map" element={<MapView/>} />
     <Route path="/upload" element={<UploadReport/>} />
     <Route path="/alert" element={<Alert/>} />
-    <Route path="/cards" element={<Pricing/>} />
     <Route path="/about" element={<AboutUs/>} />
     <Route path="/register" element={<Registration/>} />
     <Route path="/login" element={<Login/>}/>
