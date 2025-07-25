@@ -23,6 +23,10 @@ import MapView from './pages/map.jsx';
     
     <Route path="/premium" element={<PremiumHome/>} />
     <Route path="/map" element={<MapView/>} />
+    <Route path="/upload" element={<UploadReport/>} />
+    <Route path="/alert" element={<Alert/>} />
+    <Route path="/cards" element={<Pricing/>} />
+
     
     </Route>
   )
