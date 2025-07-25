@@ -7,7 +7,7 @@ export default function Footer() {
         
         {/* Logo + Company Name */}
         <div className="flex items-center space-x-3 mb-4 md:mb-0">
-          <img src="/logo.png" alt="SehatPlus Logo" className="h-15 w-auto" />
+          <img src="/logo.png" alt="SehatPlus Logo" className="h-10 w-auto" />
           <span className="text-lg font-bold tracking-wide">SehatPlus</span>
         </div>
 
