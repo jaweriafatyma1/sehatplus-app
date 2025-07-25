@@ -27,6 +27,9 @@ import Registration from './pages/registration.jsx';
     <Route path="/premium" element={<PremiumHome/>} />
     <Route path="/emergency-patient" element={<EmergencyContacts/>} />
     <Route path="/map" element={<MapView/>} />
+    <Route path="/upload" element={<UploadReport/>} />
+    <Route path="/alert" element={<Alert/>} />
+    <Route path="/cards" element={<Pricing/>} />
     <Route path="/about" element={<AboutUs/>} />
     <Route path="/register" element={<Registration/>} />
     <Route path="/login" element={<Login/>}/>
