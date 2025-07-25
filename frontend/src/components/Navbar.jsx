@@ -22,6 +22,7 @@ function Navbar() {
         <a href="#" className="text-gray-700 hover:text-red-900 font-bold">Home</a>
         <a href="#" className="text-gray-700 hover:text-red-900 font-bold">About us</a>
         <a href="#" className="text-gray-700 hover:text-red-900 font-bold">Contact Us</a>
+        <a href="#" className="text-gray-700 hover:text-red-900 font-bold">Premium</a>
       </div>
 
       {/* Desktop Menu */}

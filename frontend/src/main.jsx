@@ -9,9 +9,10 @@ import { createBrowserRouter, createRoutesFromElements,Route } from 'react-route
 import { RouterProvider } from 'react-router';
 
 import Root from './Root.jsx'
-import Home from './pages/Home.jsx';
+import Home from './pages/home.jsx';
 import PremiumHome from './pages/PremiumHome.jsx';
 import MapView from './pages/map.jsx';
+import AboutUs from './pages/AboutUs.jsx';    
 
 
 
@@ -23,7 +24,7 @@ import MapView from './pages/map.jsx';
     
     <Route path="/premium" element={<PremiumHome/>} />
     <Route path="/map" element={<MapView/>} />
-    
+    <Route path="/about" element={<AboutUs/>} />
     </Route>
   )
  )
