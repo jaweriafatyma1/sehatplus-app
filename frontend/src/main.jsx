@@ -12,8 +12,10 @@ import Root from './Root.jsx'
 import Home from './pages/home.jsx';
 import PremiumHome from './pages/PremiumHome.jsx';
 import MapView from './pages/map.jsx';
-import AboutUs from './pages/AboutUs.jsx';    
-
+import AboutUs from './pages/AboutUs.jsx';
+import EmergencyContacts from './pages/EmergnencyContacts.jsx';
+import Login from './pages/login.jsx';
+import Registration from './pages/registration.jsx';
 
 
 
@@ -23,8 +25,11 @@ import AboutUs from './pages/AboutUs.jsx';
       <Route path="" element={<Home/>} />
     
     <Route path="/premium" element={<PremiumHome/>} />
+    <Route path="/emergency-patient" element={<EmergencyContacts/>} />
     <Route path="/map" element={<MapView/>} />
     <Route path="/about" element={<AboutUs/>} />
+    <Route path="/register" element={<Registration/>} />
+    <Route path="/login" element={<Login/>}/>
     </Route>
   )
  )
