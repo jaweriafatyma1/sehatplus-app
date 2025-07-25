@@ -19,9 +19,10 @@ function Navbar() {
       </a>
 
       <div className='hidden sm:flex items-center gap-8'>
-        <a href="#" className="text-gray-700 hover:text-red-900 font-bold">Home</a>
-        <a href="#" className="text-gray-700 hover:text-red-900 font-bold">About us</a>
-        <a href="#" className="text-gray-700 hover:text-red-900 font-bold">Contact Us</a>
+        <Link to="/"><p className="text-gray-700 hover:text-red-900 font-bold">Home</p></Link>
+        <Link to="/about"><p className="text-gray-700 hover:text-red-900 font-bold">About Us</p></Link>
+        <Link to="/contact"><p className="text-gray-700 hover:text-red-900 font-bold">Contact Us</p></Link>
+        <Link to="/premium"><p className="text-gray-700 hover:text-red-900 font-bold">Premium</p></Link>
       </div>
 
       {/* Desktop Menu */}
