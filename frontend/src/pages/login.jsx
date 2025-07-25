@@ -64,10 +64,9 @@ export default function Login(){
 
          </div>
          <div className="items-center justify-between pl-8  gap-4">
-          <div><p>
-          <Link to="/premium">
+          <div>
           <button className="border ml-10 border-gray-300 h-10 w-50 text-white rounded-full  bg-[#6C0B14]">Login</button>
-      </Link></p></div>
+      </div>
          </div>
          <div className="text-center mt-4"><p>don't have accout!{""}
           <Link to="/register" className="text-blue-500 underline">
