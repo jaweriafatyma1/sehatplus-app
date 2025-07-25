@@ -64,11 +64,10 @@ export default function Login(){
 
          </div>
          <div className="items-center justify-between pl-8  gap-4">
-          <div>
-          <button className="border ml-10 hover:bg-[#58595B] border-gray-300 h-10 w-50 text-white rounded-full bg-[#6C0B14]">Login</button>
-     </div>
-         
-         {/* <button className="border border-gray-300 h-7 w-30 text-[#6C0B14] rounded-full  bg-white">Login</button> */}
+          <div><p>
+          <Link to="/premium">
+          <button className="border ml-10 border-gray-300 h-10 w-50 text-white rounded-full  bg-[#6C0B14]">Login</button>
+      </Link></p></div>
          </div>
          <div className="text-center mt-4"><p>don't have accout!{""}
           <Link to="/register" className="text-blue-500 underline">
