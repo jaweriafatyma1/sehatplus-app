@@ -9,7 +9,7 @@ import { createBrowserRouter, createRoutesFromElements,Route } from 'react-route
 import { RouterProvider } from 'react-router';
 
 import Root from './Root.jsx'
-import Home from './pages/Home.jsx';
+import Home from './pages/home.jsx';
 import PremiumHome from './pages/PremiumHome.jsx';
 import MapView from './pages/map.jsx';
 import EmergencyContacts from './pages/EmergnencyContacts.jsx';
