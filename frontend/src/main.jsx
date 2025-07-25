@@ -17,6 +17,7 @@ import Login from './pages/login.jsx';
 import Registration from './pages/registration.jsx';
 import UploadReport from './pages/Upload.jsx';
 import Alert from './pages/alert.jsx';
+import ContactUs from './pages/contact.jsx';
 
 
 
@@ -33,6 +34,7 @@ import Alert from './pages/alert.jsx';
     <Route path="/about" element={<AboutUs/>} />
     <Route path="/register" element={<Registration/>} />
     <Route path="/login" element={<Login/>}/>
+    <Route path='/contact' element={<ContactUs/>}/>
     </Route>
   )
  )

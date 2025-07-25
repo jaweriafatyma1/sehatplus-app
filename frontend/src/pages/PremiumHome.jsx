@@ -25,7 +25,7 @@ const navigate = useNavigate();
       img: "/records.png",
 
       // onClick: () => alert("🚨 Records"),
-      // path:"/",
+      path:"/upload",
 
     },
   ];
