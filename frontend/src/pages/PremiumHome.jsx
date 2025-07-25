@@ -7,7 +7,7 @@ export default function PremiumPatient() {
       title: "Alert!",
       description: "Quickly send alerts in emergency situations to nearby contacts or hospitals.",
       img: "/alert.png",
-      onClick: () => alert("🚨 Alert generated"),
+      // onClick: () => alert("🚨 Alert generated"),
       // path:"/",
     },
     {
@@ -15,14 +15,14 @@ export default function PremiumPatient() {
       description: "Instantly connect with your pre-saved emergency contact during critical moments.",
       img: "/contact.png",
       // onClick: () => alert("🚨 Emergency Contact"),
-      path:"/",
+      path:"/emergency-patient",
     },
     {
       title: "Records",
       description: "Access and manage your medical records securely anytime, anywhere.",
       img: "/records.png",
       // onClick: () => alert("🚨 Records"),
-      path:"/register",
+      // path:"/",
     },
   ];
 
