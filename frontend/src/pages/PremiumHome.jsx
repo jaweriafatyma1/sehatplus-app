@@ -23,7 +23,6 @@ const navigate = useNavigate();
       title: "Records",
       description: "Access and manage your medical records securely anytime, anywhere.",
       img: "/records.png",
-       path: "/upload-report",
 
       // onClick: () => alert("🚨 Records"),
       path:"/upload",
