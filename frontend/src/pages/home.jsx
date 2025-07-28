@@ -3,11 +3,11 @@ import { PiHospitalLight } from "react-icons/pi";
 import { TbEmergencyBed } from "react-icons/tb";
 import { BsQrCode } from "react-icons/bs";
 import { motion } from "framer-motion";
-
+import { useNavigate} from "react-router-dom";
 export default function Home() {
   const [loaded, setLoaded] = useState(false);
   const featureRef = useRef(null);
-
+  const navigate = useNavigate();
   useEffect(() => {
     setLoaded(true);
   }, []);
@@ -25,7 +25,7 @@ export default function Home() {
 
       img: "/alert.png",
       isFree: true,
-      onClick: () => alert("🚨 Alert!"),
+      path:'/alert',
     },
     {
 
@@ -35,7 +35,7 @@ export default function Home() {
 
       img: "/contact.png",
       isFree: false,
-      onClick: () => alert("🚨 Emergency Contact"),
+      path:'/login',
     },
     {
       title: "Records",
@@ -43,7 +43,7 @@ export default function Home() {
         "Access and manage your medical records securely anytime, anywhere.",
       img: "/records.png",
       isFree: false,
-      onClick: () => alert("🚨 Records"),
+      path:'/login',
     },
   ];
 
@@ -118,7 +118,7 @@ export default function Home() {
         <h1 className="text-center text-3xl font-bold text-[#6C0B14] mb-10">Features</h1>
         <div className="flex flex-wrap justify-center gap-8 px-6">
           {features.map((feature, index) => (
-            <FlipCard key={index} {...feature} />
+              <FlipCard key={index} {...feature} navigate={navigate} />
           ))}
         </div>
       </div>
@@ -184,7 +184,7 @@ export default function Home() {
 }
 
 //  FlipCard Component
-function FlipCard({ title, description, img, onClick, isFree }) {
+function FlipCard({ title, description, img, navigate, path, isFree }) {
   return (
     <div className="group w-80 h-[28rem] [perspective:1000px] cursor-pointer relative">
       <div className="absolute top-2 right-2 z-20">
@@ -204,7 +204,7 @@ function FlipCard({ title, description, img, onClick, isFree }) {
         <div className="absolute w-full h-full [backface-visibility:hidden] [transform:rotateY(180deg)] rounded-xl bg-[#6C0B14] text-white shadow-xl flex flex-col justify-center items-center p-6">
           <p className="text-base text-center mb-6">{description}</p>
           <button
-            onClick={onClick}
+            onClick={()=>navigate(path)}
             className="bg-white text-[#6C0B14] hover:bg-[#58595B] hover:text-white font-bold py-2 px-4 rounded-xl transition-all duration-200"
           >
             Use
