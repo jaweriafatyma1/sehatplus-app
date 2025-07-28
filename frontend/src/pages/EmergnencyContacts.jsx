@@ -61,8 +61,7 @@ export default function EmergencyContacts() {
   // Patient Info Handler
   const handlePatientInfoSubmit = (e) => {
     e.preventDefault();
-    // You can add logic to save patient info if needed
-    // For now, just keep it in state
+    // add logic to save patient info when needed
   };
 
   return (

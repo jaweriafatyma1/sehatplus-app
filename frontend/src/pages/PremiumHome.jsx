@@ -33,7 +33,7 @@ const navigate = useNavigate();
   return (
 
     <div className="min-h-screen bg-gray-100 font-poppins">
-      {/* 🔶 Top Banner */}
+      {/*  Top Banner */}
       <div className="w-full min-h-[60vh] bg-[#F8F4EC] flex flex-col justify-center items-center text-center px-4">
         <h1 className="text-4xl md:text-6xl font-bold text-[#660000] mb-6 tracking-tight leading-tight animate-fadeIn">
           <span className="text-[#A0153E]">Premium Patient</span> Features

@@ -19,14 +19,14 @@ export default function Home() {
   const features = [
     {
       title: "Alert!",
-      description: "Quickly send alerts in emergency situations to nearby contacts or hospitals.",
+      description: "Quickly send alerts in emergency situations to nearby hospitals, ambulance services and your emergency contacts.",
       img: "/alert.png",
       isFree: true,
       onClick: () => alert("🚨 Alert!"),
     },
     {
-      title: "Emergency Contact",
-      description: "Instantly connect with your pre-saved emergency contact during critical moments.",
+      title: "Emergency Preferences",
+      description: "Setup your emergency contacts and pick Ambulance services & hospitals of your choice in case of emergency.",
       img: "/contact.png",
       isFree: false,
       onClick: () => alert("🚨 Emergency Contact"),
@@ -163,14 +163,14 @@ export default function Home() {
   );
 }
 
-// ✅ FlipCard Component
+//  FlipCard Component
 function FlipCard({ title, description, img, onClick, isFree }) {
   return (
     <div className="group w-80 h-[28rem] [perspective:1000px] cursor-pointer relative">
       <div className="absolute top-2 right-2 z-20">
         <span
           className={`text-xs font-semibold px-2 py-1 rounded-full shadow ${
-            isFree ? "bg-gray-200 text-gray-900" : "bg-red-200 text-red-900"
+            isFree ? "bg-green-200 text-green-900" : "bg-red-200 text-red-900"
           }`}
         >
           {isFree ? "FREE" : "PREMIUM"}
@@ -197,7 +197,7 @@ function FlipCard({ title, description, img, onClick, isFree }) {
   );
 }
 
-// ✅ Service Card
+//  Service Card
 function ServiceCard({ icon, title, text }) {
   return (
     <div className="flex flex-col items-center max-w-xs">
@@ -208,7 +208,7 @@ function ServiceCard({ icon, title, text }) {
   );
 }
 
-// ✅ Why Us Item
+// Why Us Item
 function WhyUsItem({ title, text }) {
   return (
     <div className="flex items-start">
