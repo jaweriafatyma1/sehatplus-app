@@ -26,6 +26,9 @@ export default function Registration() {
       return;
     }
 
+
+    //  form is valid, now navigate
+
     navigate("/login");
   };
 

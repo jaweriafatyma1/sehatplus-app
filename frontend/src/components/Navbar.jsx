@@ -21,7 +21,7 @@ function Navbar() {
       <div className='hidden sm:flex items-center gap-8'>
         <Link to="/"><p className="text-gray-700 hover:text-red-900 font-bold">Home</p></Link>
         <Link to="/about"><p className="text-gray-700 hover:text-red-900 font-bold">About Us</p></Link>
-        <Link to="/contact"><p className="text-gray-700 hover:text-red-900 font-bold">Contact Us</p></Link>
+        {/* <Link to="/contact"><p className="text-gray-700 hover:text-red-900 font-bold">Contact Us</p></Link> */}
         <Link to="/premium"><p className="text-gray-700 hover:text-red-900 font-bold">Premium</p></Link>
       </div>
 

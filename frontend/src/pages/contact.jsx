@@ -13,21 +13,22 @@ export default function ContactUs() {
   return (
     <div className="bg-gray-100 font-[Poppins]">
 
+
       {/* 🔹 Top Banner */}
       <div className="bg-[#1f1f1f] py-25 text-center text-white text-4xl font-bold">
         Contact Us
       </div>
 
-      {/* 🔹 Contact Info Icons */}
+      {/*  Contact Info Icons */}
       <section className="bg-white py-16 px-6 w-full">
         <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
-          <ContactCard icon={<MapPin className="w-7 h-7 text-[#6C0B14]" />} title="Address" text="123 Sehat Street, Karachi, Pakistan" />
-          <ContactCard icon={<Phone className="w-7 h-7 text-[#6C0B14]" />} title="Phone" text="+92 300 1234567" />
+          <ContactCard icon={<MapPin className="w-7 h-7 text-[#6C0B14]" />} title="Address" text="SINES, NUST H-12 Campus, Islamabad" />
+          <ContactCard icon={<Phone className="w-7 h-7 text-[#6C0B14]" />} title="Phone" text="+92 3185341340" />
           <ContactCard icon={<Mail className="w-7 h-7 text-[#6C0B14]" />} title="Email Us" text="support@sehatplus.com" />
         </div>
       </section>
 
-      {/* 🔹 Help Message */}
+      {/* Help Message */}
       <section className="bg-gray-100 py-16 px-6 text-center flex items-center justify-center">
         <div>
           <h2 className="text-2xl md:text-3xl font-semibold mb-3 text-[#6C0B14]">We’re Here to Help!</h2>
@@ -37,7 +38,7 @@ export default function ContactUs() {
         </div>
       </section>
 
-      {/* 🔹 Contact Form */}
+      {/* Contact Form */}
       <section className="bg-white pt-8 pb-24 px-4 flex justify-center">
         <form
           onSubmit={handleSubmit}
