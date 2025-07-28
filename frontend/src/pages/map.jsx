@@ -14,10 +14,20 @@ const hospitalIcon = new L.Icon({
   popupAnchor: [0, -32],         // Point from which the popup should open relative to the iconAnchor
   shadowUrl: null,               // Remove shadow
 });
+function speakInstructions(instructions) {
+  if ('speechSynthesis' in window) {
+    const utterance = new SpeechSynthesisUtterance(instructions);
+    utterance.lang = 'en-US'; // or 'ur-PK' if some text is in Urdu
+    window.speechSynthesis.speak(utterance);
+  } else {
+    alert("Speech synthesis not supported in this browser.");
+  }
+}
+
 
 // Add user location icon
 const userIcon = new L.Icon({
-  iconUrl: '/map.svg',  // Add a user location icon to your public folder
+  iconUrl: '/nav.svg',  // Add a user location icon to your public folder
   iconSize: [24, 24],
   iconAnchor: [12, 12],
   popupAnchor: [0, -12],
@@ -67,10 +77,10 @@ function LocationControl() {
       <div className="leaflet-control leaflet-bar">
         <button 
           onClick={getLocation}
-          className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600"
-          style={{ margin: '10px' }}
+          className="px-4 py-2 bg-[#6C0B14] text-white w-30 h-9 rounded-xl hover:bg-[#4d0000]"
+          // style={{ margin: '10px' }}
         >
-          📍 My Location
+         My Location
         </button>
       </div>
       {error && (
@@ -86,36 +96,34 @@ function RoutingControl({ from, to }) {
   const map = useMap();
 
   useEffect(() => {
-    if (!from || !to) return;
+  if (!from || !to) return;
 
-    // Create routing control instance
-    const routingControl = L.Routing.control({
-      waypoints: [
-        L.latLng(from[0], from[1]),
-        L.latLng(to[0], to[1])
-      ],
-      router: L.Routing.osrmv1({
-        serviceUrl: 'https://router.project-osrm.org/route/v1'
-      }),
-      lineOptions: {
-        styles: [{ color: '#6366F1', weight: 4 }]
-      },
-      routeWhileDragging: false,
-      addWaypoints: false,
-      draggableWaypoints: false,
-      showAlternatives: false,
-      createMarker: function(i, wp) {
-        return L.marker(wp.latLng, {
-          icon: i === 0 ? userIcon : hospitalIcon
-        });
-      }
-    }).addTo(map);
+  const control = L.Routing.control({
+    waypoints: [L.latLng(from[0], from[1]), L.latLng(to[0], to[1])],
+    router: L.Routing.osrmv1({
+      serviceUrl: 'https://router.project-osrm.org/route/v1',
+    }),
+    show: false,
+    addWaypoints: false,
+    routeWhileDragging: false,
+    createMarker: () => null,
+  }).addTo(map);
 
-    // Cleanup
-    return () => {
-      map.removeControl(routingControl);
-    };
-  }, [from, to, map]);
+  control.on('routesfound', (e) => {
+    const instructions = e.routes[0].instructions || e.routes[0].segments?.flatMap(s => s.steps) || [];
+
+    const stepTexts = instructions.map((instr, i) => {
+      if (typeof instr === 'string') return instr; // fallback
+      return instr.instruction || instr.text;
+    });
+
+    const fullText = stepTexts.join('. ');
+    speakInstructions(fullText); // 👈 speak here
+  });
+
+  return () => map.removeControl(control);
+}, [from, to, map]);
+
 
   return null;
 }
@@ -160,6 +168,8 @@ export default function MapView() {
   }, []);
 
   return (
+     <div className="h-screen w-full flex items-center justify-center bg-gray-100">
+    <div className="relative w-[85%] max-w-7xl h-[80vh] rounded-lg shadow-xl border border-gray-300 bg-white overflow-hidden">
     <div className="h-screen w-full">
       <MapContainer
         center={[33.6844, 73.0479]}
@@ -213,6 +223,8 @@ export default function MapView() {
           </button>
         </div>
       )}
+    </div>
+    </div>
     </div>
   );
 }
