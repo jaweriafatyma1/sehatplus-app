@@ -9,7 +9,7 @@ const navigate = useNavigate();
       description: "Quickly send alerts in emergency situations to nearby contacts or hospitals.",
       img: "/alert.png",
       // onClick: () => alert("🚨 Alert generated"),
-      // path:"/",
+      path:"/",
     },
     {
       title: "Emergency Contact",
@@ -26,8 +26,6 @@ const navigate = useNavigate();
        path: "/upload-report",
 
       // onClick: () => alert("🚨 Records"),
-      path:"/upload",
-
     },
   ];
 
