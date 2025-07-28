@@ -1,18 +1,16 @@
-
+import { Link } from "react-router-dom";
 import logo from "../../public/logo.png";
 import login from "../../public/login.png";
-import {Link} from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 
-export default function Login(){
-   const navigate = useNavigate();
+export default function Login() {
+  const navigate = useNavigate();
 
   const handleSubmit = (e) => {
-    e.preventDefault(); // prevent auto reload
+    e.preventDefault();
     const form = e.target;
     const inputs = form.querySelectorAll("input");
 
-    // Optional: you can check if all fields are filled
     let allFilled = true;
     inputs.forEach((input) => {
       if (!input.value.trim()) {
@@ -28,54 +26,65 @@ export default function Login(){
       return;
     }
 
-    // ✅ form is valid, now navigate
     navigate("/premium");
   };
-    return(
-<div className=" flex ">
-         <div className="w-1/2 hidden md:block">
+
+  return (
+    <div className="flex min-h-screen items-center justify-center font-poppins bg-gray-50 py-10">
+      <div className="w-1/2 hidden md:block">
         <img
-          src= {login}
+          src={login}
           alt="Login Illustration"
-          className="ml-52 mt-10 h-120 w-90  object-cover"
+          className="ml-52 mt-10 h-120 w-90 object-cover"
         />
       </div>
-     <form onSubmit={handleSubmit}>
-       
-        <div  className=" font-poppins ">
-         <div className="w-92 h-130 m-auto mt-10 ">
-         {/* <div className="bg-rose-100 w-79 h-40 m-auto p-auto rounded-b-full">
-             <div className="bg-gradient-to-r from-rose-300 w-60 h-30 m-auto p-auto rounded-b-full"> */}
-         
-         
-         <div className="flex justify-center"><img src={logo}  className="w-50 h-auto rounded"/></div>
-        {/* </div>
-        </div> */}
-        <div className="p-5">
-         <h1 className="text-center text-20xl font-black" >Welcome to Login Page</h1>
-        
-         <div className="input m-6">
-            <input required type="digits" placeholder="enter contact number" className="focus:outline-[#6C0B14] border h-8 w-67 border-[#6C0B14] rounded px-3"/>
-         </div>
-        
-         <div className="input m-6 ">
-            <input required type="password" placeholder="enter password" className="focus:outline-[#6C0B14] border w-67 h-8 border-[#6C0B14] rounded px-3"/>
-         </div>
 
-         </div>
-         <div className="items-center justify-between pl-8  gap-4">
-          <div>
-          <button className="border ml-10 border-gray-300 h-10 w-50 text-white rounded-full  bg-[#6C0B14]">Login</button>
+      <div className="w-full max-w-md mx-auto bg-white p-8 rounded-lg shadow-md">
+        <div className="flex justify-center mb-6">
+          <img src={logo} className="w-32 h-auto rounded" alt="Logo" />
+        </div>
+
+        <form onSubmit={handleSubmit}>
+          <h1 className="text-center text-2xl font-black mb-6">
+            Welcome to Login Page
+          </h1>
+
+          <div className="space-y-4">
+            <input
+              required
+              type="text"
+              placeholder="Enter contact number"
+              className="focus:outline-[#6C0B14] border h-10 w-full border-[#6C0B14] rounded px-3"
+            />
+            <input
+              required
+              type="password"
+              placeholder="Enter password"
+              className="focus:outline-[#6C0B14] border h-10 w-full border-[#6C0B14] rounded px-3"
+            />
+          </div>
+
+          <div className="flex flex-col items-center justify-between gap-4 mt-6">
+            <button
+              type="submit"
+              className="border hover:bg-[#58595B] border-gray-300 h-10 w-48 text-white rounded-full bg-[#6C0B14]"
+            >
+              Login
+            </button>
+
+            <div className="text-sm mt-2">
+              <p>
+                Don't have an account? {" "}
+                <Link to="/register" className="text-blue-500 underline">
+                  Go to Registration
+                </Link>
+              </p>
+            </div>
+
+            <div className="mt-8" />
+          </div>
+        </form>
       </div>
-         </div>
-         <div className="text-center mt-4"><p>don't have accout!{""}
-          <Link to="/register" className="text-blue-500 underline">
-        Go to Registration
-      </Link></p></div>
-        </div>
-        </div>
-        </form> 
-        </div>
-    );
+    </div>
+  );
 }
-
