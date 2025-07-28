@@ -125,7 +125,7 @@ export default function Alert() {
             <div className="p-6">
               <div className="mb-6 bg-[#f8fafc] p-4 rounded-lg border border-[#e2e8f0]">
                 <div className="flex items-start">
-                  <HeartPulse className="text-[#8B0000] mr-3 mt-1 flex-shrink-0" />
+                  <HeartPulse className="text-[#8B0000] p mr-3 mt-1 flex-shrink-0" />
                   <div>
                     <h3 className="font-medium text-gray-800">Preferred Hospital</h3>
                     <p className="text-gray-600 mt-1">{preferredHospital}</p>
