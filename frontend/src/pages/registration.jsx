@@ -1,17 +1,16 @@
-import {Link} from "react-router-dom";
-import logo from  "../../public/logo.png";
-import login from  "../../public/login.png";
-// import login from"../assets/login.png";
+import { Link } from "react-router-dom";
+import logo from "../../public/logo.png";
+import login from "../../public/login.png";
 import { useNavigate } from "react-router-dom";
-export default function Registration(){
-   const navigate = useNavigate();
+
+export default function Registration() {
+  const navigate = useNavigate();
 
   const handleSubmit = (e) => {
-    e.preventDefault(); // prevent auto reload
+    e.preventDefault();
     const form = e.target;
     const inputs = form.querySelectorAll("input");
 
-    // Optional: you can check if all fields are filled
     let allFilled = true;
     inputs.forEach((input) => {
       if (!input.value.trim()) {
@@ -27,73 +26,80 @@ export default function Registration(){
       return;
     }
 
-    // ✅ form is valid, now navigate
     navigate("/login");
   };
 
-  
-    return(
-      <div className="flex ">
-         <div className="w-1/2 hidden md:block">
+  return (
+    <div className="flex min-h-screen items-center justify-center font-poppins bg-gray-50 py-10">
+      <div className="w-1/2 hidden md:block">
         <img
-          src= {login}
+          src={login}
           alt="Login Illustration"
-          className="ml-52 mt-10 h-120 w-90  object-cover"
+          className="ml-52 mt-10 h-120 w-90 object-cover"
         />
       </div>
-     
-      
-        <div  className="  font-poppins ">
-         <div className=" w-92 h-130 m-auto ">
-         {/* <div className="bg-rose-100 w-79 h-40 m-auto p-auto rounded-b-full"> */}
-             {/* <div className="bg-gradient-to-r from-rose-300 w-60 h-30 m-auto p-auto rounded-b-full"> */}
-         
-         
-         <div className="flex justify-center"><img src={logo}  className="w-50 h-auto rounded"/></div>
-        {/* </div> */}
-        {/* </div> */}
-        
-         <form onSubmit={handleSubmit}>
-            <div >
-         <h1 className="text-center text-2xl font-black" >Welcome to Registration Page</h1>
-         <div className="input m-3 ml-10 ">
-            <input type="text" placeholder="enter name" className=" focus:outline-[#6C0B14] border h-8 w-67 border-[#6C0B14] rounded px-3 "/>
-         </div>
-         <div className="input m-3 ml-10">
-            <input type="digits" placeholder="enter contact number" className="focus:outline-[#6C0B14] border h-8 w-67 border-[#6C0B14] rounded px-3"/>
-         </div>
-         <div className="input m-3 ml-10">
-            <input type="string" placeholder="enter CNIC" className="focus:outline-[#6C0B14] border w-67 h-8 border-[#6C0B14] rounded px-3"/>
-         </div>
-         <div className="input m-3 ml-10">
-            <input type="email" placeholder="enter email" className="focus:outline-[#6C0B14] border w-67 h-8 border-[#6C0B14] rounded px-3 "/>
-         </div>
-         <div className="input m-3 ml-10">
-            <input type="password" placeholder="enter password" className="focus:outline-[#6C0B14] border w-67 h-8 border-[#6C0B14] rounded px-3"/>
-         </div>
-         </div>
-         <div className="items-center justify-between pl-8 gap-4">
-         
-         
-         <div className="text-center text-sm mr-10"><p>Have accout!{""}
-          <Link to="/login" className="text-blue-500 underline">
-        Go to Sign in
-      </Link></p></div>
-      <div>
-        
-          <button type="submit" className="border ml-10 hover:bg-[#58595B] border-gray-300 h-10 w-50 text-white rounded-full bg-[#6C0B14]">sign up</button>
-      </div>
-         
-      
 
-         
-         </div>
-         </form>
+      <div className="w-full max-w-md mx-auto bg-white p-8 rounded-lg shadow-md">
+        <div className="flex justify-center mb-6">
+          <img src={logo} className="w-32 h-auto rounded" alt="Logo" />
         </div>
-        
-        </div> 
-       
-       </div>
 
-    );
+        <form onSubmit={handleSubmit}>
+          <h1 className="text-center text-2xl font-black mb-6">
+            Welcome to Registration Page
+          </h1>
+
+          <div className="space-y-4">
+            <input
+              type="text"
+              placeholder="Enter name"
+              className="focus:outline-[#6C0B14] border h-10 w-full border-[#6C0B14] rounded px-3"
+            />
+            <input
+              type="text"
+              placeholder="Enter contact number"
+              className="focus:outline-[#6C0B14] border h-10 w-full border-[#6C0B14] rounded px-3"
+            />
+            <input
+              type="text"
+              placeholder="Enter CNIC"
+              className="focus:outline-[#6C0B14] border h-10 w-full border-[#6C0B14] rounded px-3"
+            />
+            <input
+              type="email"
+              placeholder="Enter email"
+              className="focus:outline-[#6C0B14] border h-10 w-full border-[#6C0B14] rounded px-3"
+            />
+            <input
+              type="password"
+              placeholder="Enter password"
+              className="focus:outline-[#6C0B14] border h-10 w-full border-[#6C0B14] rounded px-3"
+            />
+          </div>
+
+          <div className="flex flex-col items-center justify-between gap-4 mt-6">
+            <div className="text-sm">
+              <p>
+                Have an account?{" "}
+                <Link to="/login" className="text-blue-500 underline">
+                  Go to Sign in
+                </Link>
+              </p>
+            </div>
+
+            <button
+              type="submit"
+              className="border hover:bg-[#58595B] border-gray-300 h-10 w-48 text-white rounded-full bg-[#6C0B14]"
+            >
+              Sign Up
+            </button>
+
+            <div className="mt-8" />
+          </div>
+        </form>
+
+       
+      </div>
+    </div>
+  );
 }

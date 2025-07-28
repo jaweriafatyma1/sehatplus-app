@@ -6,7 +6,7 @@ import { motion } from "framer-motion";
 
 export default function Home() {
   const [loaded, setLoaded] = useState(false);
-  const featureRef = useRef(null); // Scroll ref
+  const featureRef = useRef(null);
 
   useEffect(() => {
     setLoaded(true);
@@ -19,21 +19,24 @@ export default function Home() {
   const features = [
     {
       title: "Alert!",
-      description: "Quickly send alerts in emergency situations to nearby contacts or hospitals.",
+      description:
+        "Quickly send alerts in emergency situations to nearby contacts or hospitals.",
       img: "/alert.png",
       isFree: true,
       onClick: () => alert("🚨 Alert!"),
     },
     {
       title: "Emergency Contact",
-      description: "Instantly connect with your pre-saved emergency contact during critical moments.",
+      description:
+        "Instantly connect with your pre-saved emergency contact during critical moments.",
       img: "/contact.png",
       isFree: false,
       onClick: () => alert("🚨 Emergency Contact"),
     },
     {
       title: "Records",
-      description: "Access and manage your medical records securely anytime, anywhere.",
+      description:
+        "Access and manage your medical records securely anytime, anywhere.",
       img: "/records.png",
       isFree: false,
       onClick: () => alert("🚨 Records"),
@@ -61,36 +64,49 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-gray-100 font-poppins">
       {/* 🔶 Hero Banner */}
-      <div className="w-full bg-white py-16 md:py-24 flex flex-col items-center justify-center text-center px-4 relative">
-        <motion.h1
-          className="text-4xl md:text-5xl font-bold text-[#6C0B14] mb-6 leading-tight"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: loaded ? 1 : 0, y: loaded ? 0 : 20 }}
-          transition={{ duration: 0.5 }}
-        >
-          Health is Wealth<br />Keep it Healthy
-        </motion.h1>
+      <div className="w-full bg-[#F8F4EC] py-16 md:py-24 px-4">
+        <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-8 items-center">
+          <div className="text-center md:text-left">
+            <motion.h1
+              className="text-4xl md:text-5xl font-bold text-[#6C0B14] mb-6 leading-tight"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: loaded ? 1 : 0, y: loaded ? 0 : 20 }}
+              transition={{ duration: 0.5 }}
+            >
+              Sehat ka raabta, 
+              <br />
+              har waqt aap ke saath.            </motion.h1>
 
-        <motion.p
-          className="text-lg text-gray-600 mb-8 max-w-2xl"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: loaded ? 1 : 0 }}
-          transition={{ duration: 0.5, delay: 0.3 }}
-        >
-          Seamless smart care built for critical emergencies and day-to-day well-being.
-        </motion.p>
+            <motion.p
+              className="text-lg text-gray-700 mb-8 max-w-xl"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: loaded ? 1 : 0 }}
+              transition={{ duration: 0.5, delay: 0.3 }}
+            >
+              Seamless smart care built for critical emergencies and day-to-day well-being.
+            </motion.p>
 
-        <motion.button
-          onClick={handleScrollToFeatures}
-          className="bg-[#6C0B14] text-white hover:bg-[#8a0f1a] font-medium py-3 px-8 rounded-full text-lg transition-all duration-300"
-          initial={{ opacity: 0, scale: 0.8 }}
-          animate={{ opacity: loaded ? 1 : 0, scale: loaded ? 1 : 0.8 }}
-          transition={{ duration: 0.5, delay: 0.4 }}
-          whileHover={{ scale: 1.05 }}
-          whileTap={{ scale: 0.95 }}
-        >
-          Explore Features
-        </motion.button>
+            <motion.button
+              onClick={handleScrollToFeatures}
+              className="bg-[#6C0B14] text-white hover:bg-[#8a0f1a] font-medium py-3 px-8 rounded-full text-lg transition-all duration-300"
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: loaded ? 1 : 0, scale: loaded ? 1 : 0.8 }}
+              transition={{ duration: 0.5, delay: 0.4 }}
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              Explore Features
+            </motion.button>
+          </div>
+
+          <div className="flex justify-center">
+            <img
+              src="/Ambulance.png"
+              alt="Doctor Banner"
+              className="rounded-xl w-full max-w-md object-cover shadow-md"
+            />
+          </div>
+        </div>
       </div>
 
       {/* ✅ Features Section */}
@@ -104,7 +120,7 @@ export default function Home() {
       </div>
 
       {/* ✅ Our Services */}
-      <section className="bg-white py-16 px-4">
+      <section className="bg-[#F5F5F5] py-16 px-4">
         <h2 className="text-3xl font-bold text-center text-[#6C0B14] mb-4">Our Services</h2>
         <p className="text-center text-gray-600 max-w-xl mx-auto mb-12">
           Seamless emergency support, healthcare data access, and patient-hospital connectivity.
@@ -117,8 +133,8 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ✅ Why Choose Sehat Plus */}
-      <section className="w-full bg-white py-16 px-4 md:px-8">
+      {/* ✅ Why Choose Us */}
+      <section className="w-full bg-[#F1ECE9] py-16 px-4 md:px-8">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold text-[#6C0B14] mb-4">Why Choose Sehat Plus?</h2>
@@ -163,7 +179,6 @@ export default function Home() {
   );
 }
 
-// ✅ FlipCard Component
 function FlipCard({ title, description, img, onClick, isFree }) {
   return (
     <div className="group w-80 h-[28rem] [perspective:1000px] cursor-pointer relative">
@@ -176,13 +191,11 @@ function FlipCard({ title, description, img, onClick, isFree }) {
           {isFree ? "FREE" : "PREMIUM"}
         </span>
       </div>
-
       <div className="relative w-full h-full transition-transform duration-700 [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)]">
         <div className="absolute w-full h-full [backface-visibility:hidden] rounded-xl bg-white shadow-xl border border-gray-200 flex flex-col items-center justify-center p-4">
           <img src={img} alt={title} className="h-52 w-full object-contain mb-4" />
           <p className="text-[#6D2323] text-2xl font-bold text-center">{title}</p>
         </div>
-
         <div className="absolute w-full h-full [backface-visibility:hidden] [transform:rotateY(180deg)] rounded-xl bg-[#6C0B14] text-white shadow-xl flex flex-col justify-center items-center p-6">
           <p className="text-base text-center mb-6">{description}</p>
           <button
@@ -197,7 +210,6 @@ function FlipCard({ title, description, img, onClick, isFree }) {
   );
 }
 
-// ✅ Service Card
 function ServiceCard({ icon, title, text }) {
   return (
     <div className="flex flex-col items-center max-w-xs">
@@ -208,7 +220,6 @@ function ServiceCard({ icon, title, text }) {
   );
 }
 
-// ✅ Why Us Item
 function WhyUsItem({ title, text }) {
   return (
     <div className="flex items-start">

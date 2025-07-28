@@ -23,6 +23,7 @@ const navigate = useNavigate();
       title: "Records",
       description: "Access and manage your medical records securely anytime, anywhere.",
       img: "/records.png",
+       path: "/upload-report",
 
       // onClick: () => alert("🚨 Records"),
       // path:"/",
@@ -32,7 +33,7 @@ const navigate = useNavigate();
 
   return (
 
-    <div className="min-h-screen bg-gray-100 font-poppins">
+    <div className="min-h-screen bg-gray-150 font-poppins">
       {/* 🔶 Top Banner */}
       <div className="w-full min-h-[60vh] bg-[#F8F4EC] flex flex-col justify-center items-center text-center px-4">
         <h1 className="text-4xl md:text-6xl font-bold text-[#660000] mb-6 tracking-tight leading-tight animate-fadeIn">
