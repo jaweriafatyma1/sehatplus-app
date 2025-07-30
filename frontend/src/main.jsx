@@ -19,7 +19,7 @@ import AboutUs from './pages/AboutUs.jsx';
 import EmergencyContacts from './pages/EmergnencyContacts.jsx';
 import Login from './pages/login.jsx';
 import Registration from './pages/registration.jsx';
-import UploadReport from './pages/Upload.jsx'; // 📂 Same component
+import UploadReport from './pages/upload.jsx'; // 📂 Same component
 import Alert from './pages/alert.jsx';
 import ContactUs from './pages/contact.jsx';
 
