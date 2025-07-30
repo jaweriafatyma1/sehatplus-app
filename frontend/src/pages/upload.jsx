@@ -1,8 +1,32 @@
 import { useState } from "react";
 import { CloudUpload, FileText, Trash2, Download } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 
 export default function UploadReport() {
   const [uploadedFiles, setUploadedFiles] = useState([]);
+
+  // 🛡️ Check if user is premium
+  const isPremium = localStorage.getItem("userType") === "premium"; // or use context/store
+  const navigate = useNavigate();
+
+  if (!isPremium) {
+    return (
+      <div className="min-h-screen flex items-center justify-center text-center px-4 bg-[#FFF8F0] font-[Poppins]">
+        <div>
+          <h1 className="text-2xl font-bold text-[#7B1E22] mb-4">Premium Access Required 🔒</h1>
+          <p className="text-sm text-gray-600 mb-6 max-w-md mx-auto">
+            This feature is available only to premium users. Please upgrade your plan to access report uploads.
+          </p>
+          <button
+            onClick={() => navigate("/premium")}
+            className="px-5 py-2 bg-[#7B1E22] text-white rounded-full hover:bg-[#5a1417] transition"
+          >
+            Upgrade to Premium
+          </button>
+        </div>
+      </div>
+    );
+  }
 
   const handleFileUpload = (event) => {
     const files = Array.from(event.target.files);
@@ -25,7 +49,7 @@ export default function UploadReport() {
 
   return (
     <div className="min-h-screen bg-[#FFF8F0] font-[Poppins] pt-0 pb-20 flex flex-col items-center px-4">
-      
+
       {/* Top Banner */}
       <div className="relative bg-gradient-to-br from-[#F8F4EC] to-[#f2dad5] w-full h-[260px] sm:h-[300px] md:h-[320px] shadow-md rounded-b-3xl flex items-center justify-center mb-10">
         <div className="text-center space-y-2 sm:space-y-3 px-2 max-w-xl">

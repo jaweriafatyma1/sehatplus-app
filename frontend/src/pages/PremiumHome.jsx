@@ -1,40 +1,32 @@
 import { useNavigate } from "react-router-dom";
-import { href, Link } from "react-router-dom";
-export default function PremiumPatient() {
-const navigate = useNavigate();
+
+export default function PremiumHome() {
+  const navigate = useNavigate();
 
   const features = [
     {
       title: "Alert!",
       description: "Quickly send alerts in emergency situations to nearby contacts or hospitals.",
       img: "/alert.png",
-      // onClick: () => alert("🚨 Alert generated"),
-      path:"/",
+      path: "/",
     },
     {
       title: "Emergency Contact",
       description: "Instantly connect with your pre-saved emergency contact during critical moments.",
       img: "/contact.png",
-      // onClick: () => alert("🚨 Emergency Contact"),
-      path:"/emergency-patient",
-
+      path: "/emergency-patient",
     },
     {
       title: "Records",
       description: "Access and manage your medical records securely anytime, anywhere.",
       img: "/records.png",
-       path: "/upload-report",
-
-      // onClick: () => alert("🚨 Records"),
+      path: "/upload-report",
     },
   ];
 
   return (
-
-
     <div className="min-h-screen bg-gray-150 font-poppins">
       {/* 🔶 Top Banner */}
-
       <div className="w-full min-h-[60vh] bg-[#F8F4EC] flex flex-col justify-center items-center text-center px-4">
         <h1 className="text-4xl md:text-6xl font-bold text-[#660000] mb-6 tracking-tight leading-tight animate-fadeIn">
           <span className="text-[#A0153E]">Premium Patient</span> Features
@@ -48,7 +40,6 @@ const navigate = useNavigate();
       <div className="py-16 px-4">
         <h2 className="text-center text-3xl font-bold text-[#6C0B14] mb-10">What You Get</h2>
         <div className="flex flex-wrap justify-center gap-6">
-
           {features.map((feature, index) => (
             <div
               key={index}
@@ -67,20 +58,12 @@ const navigate = useNavigate();
                   {feature.description}
                 </p>
               </div>
-
-
-
-
               <button
                 onClick={() => navigate(feature.path)}
                 className="mt-6 w-full bg-[#6C0B14] hover:bg-[#58595B] text-white font-bold py-2 px-4 rounded-xl transition-all duration-200"
               >
                 Use
               </button>
-
-
-
-
             </div>
           ))}
         </div>
@@ -144,12 +127,7 @@ function PricingCard({ title, price, features }) {
     <div className="w-full md:w-[300px] bg-white border border-[#991b1b] rounded-2xl shadow-2xl hover:scale-105 transition duration-300 backdrop-blur-md bg-opacity-80">
       <div className="p-6">
         <h2 className="text-xl font-semibold text-[#991b1b] mb-2">{title}</h2>
-        <p className="text-3xl font-bold text-[#660000] mb-4">
-          {price}
-          {price.includes("month") ? (
-            <span className="text-sm font-normal"></span>
-          ) : null}
-        </p>
+        <p className="text-3xl font-bold text-[#660000] mb-4">{price}</p>
         <ul className="text-sm text-gray-800 space-y-2 mb-6">
           {features.map((feature, index) => (
             <li key={index}>✓ {feature}</li>
