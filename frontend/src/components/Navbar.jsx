@@ -21,14 +21,14 @@ function Navbar() {
       <div className='hidden sm:flex items-center gap-8'>
         <Link to="/"><p className="text-gray-700 hover:text-red-900 font-bold">Home</p></Link>
         <Link to="/about"><p className="text-gray-700 hover:text-red-900 font-bold">About Us</p></Link>
-        {/* <Link to="/contact"><p className="text-gray-700 hover:text-red-900 font-bold">Contact Us</p></Link> */}
+        <Link to="/contact"><p className="text-gray-700 hover:text-red-900 font-bold">Contact Us</p></Link>
         <Link to="/premium"><p className="text-gray-700 hover:text-red-900 font-bold">Premium</p></Link>
       </div>
 
       {/* Desktop Menu */}
       <div className="hidden sm:flex items-center gap-8">
         
-       <div><p>
+    <div><p>
           <Link to="/login" >
           <button className="cursor-pointer px-8 py-2 bg-[#6C0B14] hover:bg-[#58595B] transition text-white rounded-full">
           Login
