@@ -3,6 +3,7 @@ import { CloudUpload, FileText, Trash2, Download } from "lucide-react";
 
 export default function UploadReport() {
   const [uploadedFiles, setUploadedFiles] = useState([]);
+  const [isPremiumMember, setIsPremiumMember] = useState(false); // Default to false for demo
 
   const handleFileUpload = (event) => {
     const files = Array.from(event.target.files);
@@ -23,9 +24,167 @@ export default function UploadReport() {
     console.log("Deleting:", record.name);
   };
 
+  const handleUpgrade = () => {
+    // In a real app, this would redirect to payment processing
+    console.log("Redirecting to payment...");
+    setIsPremiumMember(true); // For demo purposes only
+  };
+
+  if (!isPremiumMember) {
+    return (
+      <div className="min-h-screen bg-[#FFF8F0] font-[Poppins] pt-0 pb-20 flex flex-col items-center px-4">
+        <div className="h-24"></div>
+        {/* Premium Required Banner - Original Style */}
+        <div className="relative bg-gradient-to-br from-[#F8F4EC] to-[#f2dad5] w-full h-[260px] sm:h-[300px] md:h-[320px] shadow-md rounded-b-3xl flex items-center justify-center mb-10">
+        <div className="text-center space-y-2 sm:space-y-3 px-2 max-w-xl">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-[#660000] leading-tight">
+            Upload Reports
+          </h1>
+          <p className="text-sm sm:text-base text-[#7a4f4f] font-medium">
+            Securely upload and manage your health documents
+          </p>
+        </div>
+      </div>
+
+        {/* Pricing Section */}
+        <div className="w-full max-w-6xl px-4 py-8">
+          <h2 className="text-3xl font-bold text-center text-[#7B1E22] mb-2">
+            Choose Your Plan
+          </h2>
+          <p className="text-center text-gray-600 mb-12">
+            Select the package that fits your healthcare needs
+          </p>
+
+          <div className="grid md:grid-cols-3 gap-8">
+            {/* Basic Plan */}
+            <div className="bg-white rounded-xl shadow-md overflow-hidden border border-gray-200">
+              <div className="p-6">
+                <h3 className="text-xl font-bold text-gray-800 mb-2">Basic</h3>
+                <p className="text-3xl font-bold text-[#7B1E22] mb-4">Rs. 0<span className="text-sm font-normal">/month</span></p>
+                <ul className="space-y-3 mb-6">
+                  <li className="flex items-start">
+                    <span className="text-green-500 mr-2">✓</span>
+                    <span>Emergency alerts</span>
+                  </li>
+                  <li className="flex items-start">
+                    <span className="text-green-500 mr-2">✓</span>
+                    <span>Hospital locator</span>
+                  </li>
+                  <li className="flex items-start text-gray-400">
+                    <span className="mr-2">✗</span>
+                    <span>Medical records</span>
+                  </li>
+                </ul>
+                <button className="w-full bg-gray-200 text-gray-800 py-2 rounded-md">
+                  Current Plan
+                </button>
+              </div>
+            </div>
+
+            {/* Pro Plan */}
+            <div className="bg-white rounded-xl shadow-lg overflow-hidden border-2 border-[#7B1E22] transform scale-105 z-10">
+              <div className="bg-[#7B1E22] text-white text-center py-2">
+                <p className="font-semibold">MOST POPULAR</p>
+              </div>
+              <div className="p-6">
+                <h3 className="text-xl font-bold text-gray-800 mb-2">Pro Care</h3>
+                <p className="text-3xl font-bold text-[#7B1E22] mb-4">Rs. 500<span className="text-sm font-normal">/month</span></p>
+                <ul className="space-y-3 mb-6">
+                  <li className="flex items-start">
+                    <span className="text-green-500 mr-2">✓</span>
+                    <span>All Basic features</span>
+                  </li>
+                  <li className="flex items-start">
+                    <span className="text-green-500 mr-2">✓</span>
+                    <span>Medical records storage</span>
+                  </li>
+                  <li className="flex items-start">
+                    <span className="text-green-500 mr-2">✓</span>
+                    <span>Priority support</span>
+                  </li>
+                </ul>
+                <button 
+                  onClick={handleUpgrade}
+                  className="w-full bg-[#7B1E22] text-white py-2 rounded-md hover:bg-[#5f1316] transition"
+                >
+                  Upgrade Now
+                </button>
+              </div>
+            </div>
+
+            {/* Annual Plan */}
+            <div className="bg-white rounded-xl shadow-md overflow-hidden border border-gray-200">
+              <div className="p-6">
+                <h3 className="text-xl font-bold text-gray-800 mb-2">Annual</h3>
+                <p className="text-3xl font-bold text-[#7B1E22] mb-4">Rs. 5,000<span className="text-sm font-normal">/year</span></p>
+                <p className="text-sm text-green-600 mb-4">Save 16% compared to monthly</p>
+                <ul className="space-y-3 mb-6">
+                  <li className="flex items-start">
+                    <span className="text-green-500 mr-2">✓</span>
+                    <span>All Pro features</span>
+                  </li>
+                  <li className="flex items-start">
+                    <span className="text-green-500 mr-2">✓</span>
+                    <span>10GB document storage</span>
+                  </li>
+                  <li className="flex items-start">
+                    <span className="text-green-500 mr-2">✓</span>
+                    <span>Family package</span>
+                  </li>
+                </ul>
+                <button 
+                  onClick={handleUpgrade}
+                  className="w-full bg-[#7B1E22] text-white py-2 rounded-md hover:bg-[#5f1316] transition"
+                >
+                  Choose Annual
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Benefits Section */}
+        <div className="w-full max-w-6xl px-4 py-8">
+          <h2 className="text-3xl font-bold text-center text-[#7B1E22] mb-12">
+            Premium Benefits
+          </h2>
+          <div className="grid md:grid-cols-3 gap-6">
+            <div className="bg-white p-6 rounded-xl shadow-md text-center">
+              <div className="flex justify-center mb-4">
+                <FileText className="h-9 w-9 text-[#7B1E22]" />
+              </div>
+              <h3 className="text-xl font-semibold text-[#7B1E22] mb-2">
+                Secure Storage
+              </h3>
+              <p className="text-gray-600">Military-grade encryption for all your medical documents</p>
+            </div>
+            <div className="bg-white p-6 rounded-xl shadow-md text-center">
+              <div className="flex justify-center mb-4">
+                <Download className="h-9 w-9 text-[#7B1E22]" />
+              </div>
+              <h3 className="text-xl font-semibold text-[#7B1E22] mb-2">
+                Unlimited Uploads
+              </h3>
+              <p className="text-gray-600">No restrictions on file size or number of documents</p>
+            </div>
+            <div className="bg-white p-6 rounded-xl shadow-md text-center">
+              <div className="flex justify-center mb-4">
+                <CloudUpload className="h-9 w-9 text-[#7B1E22]" />
+              </div>
+              <h3 className="text-xl font-semibold text-[#7B1E22] mb-2">
+                Easy Access
+              </h3>
+              <p className="text-gray-600">Access your reports anytime, anywhere</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
+  // Premium Member View
   return (
     <div className="min-h-screen bg-[#FFF8F0] font-[Poppins] pt-0 pb-20 flex flex-col items-center px-4">
-      
       {/* Top Banner */}
       <div className="relative bg-gradient-to-br from-[#F8F4EC] to-[#f2dad5] w-full h-[260px] sm:h-[300px] md:h-[320px] shadow-md rounded-b-3xl flex items-center justify-center mb-10">
         <div className="text-center space-y-2 sm:space-y-3 px-2 max-w-xl">

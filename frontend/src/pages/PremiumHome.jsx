@@ -1,165 +1,305 @@
-import { useNavigate } from "react-router-dom";
-import { href, Link } from "react-router-dom";
-export default function PremiumPatient() {
-const navigate = useNavigate();
+import React from 'react'
+import Footer from '../components/Footer';
+import { Link } from "react-router-dom";
 
+import { 
+  FaBell, 
+  FaFileMedical, 
+  FaQrcode, 
+  FaPhoneAlt, 
+  FaAmbulance,
+  FaCreditCard,
+  FaMobileAlt,
+  FaHospital
+} from "react-icons/fa";
+import { 
+  MdLocalPharmacy, 
+  MdHealthAndSafety,
+  MdAccountBalance 
+} from "react-icons/md";
+import { SiEasyeda } from "react-icons/si";
+
+export default function PremiumPatient() {
+  // Premium Features 
   const features = [
     {
-      title: "Alert!",
-      description: "Quickly send alerts in emergency situations to nearby contacts or hospitals.",
-      img: "/alert.png",
-      // onClick: () => alert("🚨 Alert generated"),
-      // path:"/",
+      title: "Instant Alerts",
+      description: "Notifications to nearby hospitals and contacts",
+      icon: <FaBell className="text-4xl text-[#6C0B14]" />
     },
     {
-      title: "Emergency Contact",
-      description: "Instantly connect with your pre-saved emergency contact during critical moments.",
-      img: "/contact.png",
-      // onClick: () => alert("🚨 Emergency Contact"),
-      path:"/emergency-patient",
-
+      title: "Health Vault",
+      description: "Secure cloud storage for medical documents",
+      icon: <FaFileMedical className="text-4xl text-[#6C0B14]" />
     },
     {
-      title: "Records",
-      description: "Access and manage your medical records securely anytime, anywhere.",
-      img: "/records.png",
-
-      // onClick: () => alert("🚨 Records"),
-      path:"/upload",
-
+      title: "Medi-Shop",
+      description: "Convenient shopping at labs and pharmacies",
+      icon: <MdLocalPharmacy className="text-4xl text-[#6C0B14]" />
     },
+    {
+      title: "ICE QR Card",
+      description: "Emergency access when you can't use the app",
+      icon: <FaQrcode className="text-4xl text-[#6C0B14]" />
+    }
   ];
 
-  return (
+  // Premium Services
+  const premiumServices = [
+    {
+      icon: <FaPhoneAlt className="text-2xl text-[#6C0B14]" />,
+      text: "24/7 Emergency Support Line"
+    },
+    {
+      icon: <FaAmbulance className="text-2xl text-[#6C0B14]" />,
+      text: "Priority Ambulance Dispatch"
+    },
+    {
+      icon: <MdHealthAndSafety className="text-2xl text-[#6C0B14]" />,
+      text: "Annual Health Checkups"
+    }
+  ];
 
+  // Payment Methods
+  const paymentMethods = [
+    { 
+      name: "Credit/Debit Cards", 
+      icon: <FaCreditCard className="text-3xl text-[#6C0B14]" /> 
+    },
+    { 
+      name: "EasyPaisa", 
+      icon: <SiEasyeda className="text-3xl text-[#6C0B14]" /> 
+    },
+    { 
+      name: "JazzCash", 
+      icon: <FaMobileAlt className="text-3xl text-[#6C0B14]" /> 
+    },
+    { 
+      name: "Bank Transfer", 
+      icon: <MdAccountBalance className="text-3xl text-[#6C0B14]" /> 
+    }
+  ];
 
-    <div className="min-h-screen bg-gray-150 font-poppins">
-      {/* 🔶 Top Banner */}
-
-      <div className="w-full min-h-[60vh] bg-[#F8F4EC] flex flex-col justify-center items-center text-center px-4">
-        <h1 className="text-4xl md:text-6xl font-bold text-[#660000] mb-6 tracking-tight leading-tight animate-fadeIn">
-          <span className="text-[#A0153E]">Premium Patient</span> Features
+  return ( 
+    <div>
+    <div className="min-h-screen bg-gradient-to-b from-gray-50 to-gray-100 font-poppins">
+      <div className="h-24"></div>
+      {/*  Banner */}
+      <div className="w-full bg-[#F8F4EC] py-20 px-4 text-center">
+        <h1 className="text-4xl md:text-5xl font-bold text-[#6C0B14] mb-6">
+          <span className="text-[#A0153E]">Premium</span> Healthcare Plan
         </h1>
-        <p className="text-lg md:text-xl text-gray-700 max-w-2xl animate-fadeIn delay-200">
-          Enjoy instant emergency support, digital health management, and direct access to care at your fingertips.
+        <p className="text-xl md:text-2xl text-gray-700 max-w-2xl mx-auto">
+          Advanced protection for you and your family's medical needs
         </p>
       </div>
 
-      {/* 🔹 Feature Cards */}
-      <div className="py-16 px-4">
-        <h2 className="text-center text-3xl font-bold text-[#6C0B14] mb-10">What You Get</h2>
-        <div className="flex flex-wrap justify-center gap-6">
-
+      {/* Premium Features Grid */}
+      <div className="max-w-7xl mx-auto py-16 px-4">
+        <h2 className="text-3xl font-bold text-center text-[#6C0B14] mb-12">
+          Premium Benefits
+        </h2>
+        
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
           {features.map((feature, index) => (
-            <div
-              key={index}
-              className="p-4 bg-white rounded-xl shadow-lg max-w-xs w-full flex flex-col justify-between"
+            <div 
+              key={index} 
+              className="bg-white p-6 rounded-xl shadow-md text-center hover:shadow-lg transition duration-300"
             >
-              <img
-                src={feature.img}
-                alt={feature.title}
-                className="rounded-md max-h-40 w-full object-cover"
-              />
-              <div className="flex-1 mt-4">
-                <p className="text-[#6C0B14] text-xl font-semibold ml-1">
-                  {feature.title}
-                </p>
-                <p className="text-gray-600 text-sm mt-2 ml-1">
-                  {feature.description}
-                </p>
+              <div className="flex justify-center mb-4">
+                {feature.icon}
               </div>
-
-
-
-
-              <button
-                onClick={() => navigate(feature.path)}
-                className="mt-6 w-full bg-[#6C0B14] hover:bg-[#58595B] text-white font-bold py-2 px-4 rounded-xl transition-all duration-200"
-              >
-                Use
-              </button>
-
-
-
-
+              <h3 className="text-xl font-semibold text-[#6C0B14] mb-2">
+                {feature.title}
+              </h3>
+              <p className="text-gray-600">{feature.description}</p>
             </div>
           ))}
         </div>
       </div>
 
-      {/* 🔺 Pricing Heading */}
-      <div className="text-center mb-10">
-        <h2 className="text-3xl font-bold text-[#6C0B14]">Pricing Plans</h2>
+      {/* Exclusive Services */}
+      <div className="bg-[#F1ECE9] py-12 px-4">
+        <div className="max-w-4xl mx-auto">
+          <h3 className="text-2xl font-semibold text-center text-[#6C0B14] mb-8">
+            Exclusive Member Services
+          </h3>
+          <div className="grid md:grid-cols-3 gap-6">
+            {premiumServices.map((service, index) => (
+              <div 
+                key={index} 
+                className="flex items-start bg-white p-4 rounded-lg hover:shadow-md transition"
+              >
+                <div className="mr-4 mt-1">
+                  {service.icon}
+                </div>
+                <p className="text-gray-800">{service.text}</p>
+              </div>
+            ))}
+          </div>
+        </div>
       </div>
 
-      {/* 💳 Pricing Plans */}
-      <div className="flex flex-col md:flex-row gap-6 justify-center items-center w-full pb-20 px-4">
-        {/* Basic Care Plan */}
-        <PricingCard
-          title="Basic Care"
-          price="Rs.0"
-          features={[
-            "24/7 Customer Support",
-            "Emergency Ambulance Call",
-            "Location Sharing with Ambulance",
-            "Hospital Availability Lookup",
-          ]}
-        />
+      {/* Pricing Section */}
+      <div className="bg-white py-16 px-4">
+        <div className="max-w-4xl mx-auto">
+          <h2 className="text-3xl font-bold text-center text-[#6C0B14] mb-2">
+            Choose Your Plan
+          </h2>
+          <p className="text-center text-gray-600 mb-12">
+            Select the package that fits your healthcare needs
+          </p>
 
-        {/* Pro Care Plan */}
-        <PricingCard
-          title="Pro Care"
-          price="Rs.500/month"
-          features={[
-            "Prescription Upload",
-            "20% pharmacy discount",
-            "Emergency Contact Button",
-            "Priority appointment slots",
-            "Customizable Profile",
-            "Emergency Contacts",
-            "Lab test discounts",
-          ]}
-        />
+          <div className="grid md:grid-cols-3 gap-8">
+            {/* Basic Plan */}
+            <div className="bg-white rounded-xl shadow-md overflow-hidden border border-gray-200">
+              <div className="p-6">
+                <h3 className="text-xl font-bold text-gray-800 mb-2">Basic</h3>
+                <p className="text-3xl font-bold text-[#6C0B14] mb-4">Rs. 0<span className="text-sm font-normal">/month</span></p>
+                <ul className="space-y-3 mb-6">
+                  <li className="flex items-start">
+                    <span className="text-green-500 mr-2">✓</span>
+                    <span>Emergency alerts</span>
+                  </li>
+                  <li className="flex items-start">
+                    <span className="text-green-500 mr-2">✓</span>
+                    <span>Hospital locator</span>
+                  </li>
+                  <li className="flex items-start text-gray-400">
+                    <span className="mr-2">✗</span>
+                    <span>Medical records</span>
+                  </li>
+                </ul>
+                <button className="w-full bg-gray-200 text-gray-800 py-2 rounded-md">
+                  Current Plan
+                </button>
+              </div>
+            </div>
 
-        {/* 6 Month Plan */}
-        <PricingCard
-          title="6 Month Plan"
-          price="Rs.3000"
-          features={[
-            "All Pro Care benefits",
-            "6 complete health checkups",
-            "Emergency ambulance service",
-            "Dedicated care manager",
-            "24/7 Customer Support",
-            "Secure User Login",
-          ]}
-        />
+            {/* Pro Plan */}
+            <div className="bg-white rounded-xl shadow-lg overflow-hidden border-2 border-[#6C0B14] transform scale-105 z-10">
+              <div className="bg-[#6C0B14] text-white text-center py-2">
+                <p className="font-semibold">MOST POPULAR</p>
+              </div>
+              <div className="p-6">
+                <h3 className="text-xl font-bold text-gray-800 mb-2">Pro Care</h3>
+                <p className="text-3xl font-bold text-[#6C0B14] mb-4">Rs. 500<span className="text-sm font-normal">/month</span></p>
+                <ul className="space-y-3 mb-6">
+                  <li className="flex items-start">
+                    <span className="text-green-500 mr-2">✓</span>
+                    <span>All Basic features</span>
+                  </li>
+                  <li className="flex items-start">
+                    <span className="text-green-500 mr-2">✓</span>
+                    <span>Medical records</span>
+                  </li>
+                  <li className="flex items-start">
+                    <span className="text-green-500 mr-2">✓</span>
+                    <span>Priority support</span>
+                  </li>
+                </ul>
+                <button className="w-full bg-[#6C0B14] text-white py-2 rounded-md hover:bg-[#8a0f1a] transition">
+                  Upgrade Now
+                </button>
+              </div>
+            </div>
+
+            {/* Annual Plan */}
+            <div className="bg-white rounded-xl shadow-md overflow-hidden border border-gray-200">
+              <div className="p-6">
+                <h3 className="text-xl font-bold text-gray-800 mb-2">Annual</h3>
+                <p className="text-3xl font-bold text-[#6C0B14] mb-4">Rs. 5,000<span className="text-sm font-normal">/year</span></p>
+                <p className="text-sm text-green-600 mb-4">Save 16% compared to monthly</p>
+                <ul className="space-y-3 mb-6">
+                  <li className="flex items-start">
+                    <span className="text-green-500 mr-2">✓</span>
+                    <span>All Pro features</span>
+                  </li>
+                  <li className="flex items-start">
+                    <span className="text-green-500 mr-2">✓</span>
+                    <span>Yearly health checkup</span>
+                  </li>
+                  <li className="flex items-start">
+                    <span className="text-green-500 mr-2">✓</span>
+                    <span>Family package</span>
+                  </li>
+                </ul>
+                <button className="w-full bg-[#6C0B14] text-white py-2 rounded-md hover:bg-[#8a0f1a] transition">
+                  Choose Annual
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Payment Methods */}
+      <div className="max-w-4xl mx-auto py-16 px-4">
+        <h2 className="text-3xl font-bold text-center text-[#6C0B14] mb-12">
+          We Accept
+        </h2>
+        <div className="flex flex-wrap justify-center gap-6">
+          {paymentMethods.map((method, index) => (
+            <div 
+              key={index} 
+              className="flex flex-col items-center bg-white p-6 rounded-lg shadow-sm hover:shadow-md transition min-w-[150px]"
+            >
+              <div className="mb-3">
+                {method.icon}
+              </div>
+              <span className="font-medium text-center">{method.name}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* FAQ Section */}
+      <div className="bg-gray-50 py-16 px-4">
+        <div className="max-w-4xl mx-auto">
+          <h2 className="text-3xl font-bold text-center text-[#6C0B14] mb-12">
+            Frequently Asked Questions
+          </h2>
+          
+          <div className="space-y-4">
+            <div className="bg-white p-6 rounded-lg shadow-sm">
+              <h3 className="font-semibold text-lg">How do I upgrade my plan?</h3>
+              <p className="mt-2 text-gray-600">
+                Select your desired plan and complete the payment. Your account will be upgraded immediately.
+              </p>
+            </div>
+            
+            <div className="bg-white p-6 rounded-lg shadow-sm">
+              <h3 className="font-semibold text-lg">Can I cancel anytime?</h3>
+              <p className="mt-2 text-gray-600">
+                Yes, you can cancel your subscription anytime. No cancellation fees.
+              </p>
+            </div>
+            
+            <div className="bg-white p-6 rounded-lg shadow-sm">
+              <h3 className="font-semibold text-lg">Is my payment secure?</h3>
+              <p className="mt-2 text-gray-600">
+                We use bank-level encryption for all transactions. Your payment information is never stored.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Final CTA */}
+      <div className="bg-[#6C0B14] text-white py-16 px-4 text-center">
+        <h2 className="text-3xl font-bold mb-6">Ready for Premium Healthcare?</h2>
+        <p className="text-xl mb-8 max-w-2xl mx-auto">
+          Join thousands who trust us for their emergency medical needs
+        </p>
+        <Link
+          to="/signup"
+          className="inline-block bg-white text-[#6C0B14] font-bold py-3 px-8 rounded-full text-lg hover:bg-gray-100 transition"
+        >
+          Get Started Now
+        </Link>
       </div>
     </div>
-  );
-}
-
-// 💳 Reusable Pricing Card
-function PricingCard({ title, price, features }) {
-  return (
-    <div className="w-full md:w-[300px] bg-white border border-[#991b1b] rounded-2xl shadow-2xl hover:scale-105 transition duration-300 backdrop-blur-md bg-opacity-80">
-      <div className="p-6">
-        <h2 className="text-xl font-semibold text-[#991b1b] mb-2">{title}</h2>
-        <p className="text-3xl font-bold text-[#660000] mb-4">
-          {price}
-          {price.includes("month") ? (
-            <span className="text-sm font-normal"></span>
-          ) : null}
-        </p>
-        <ul className="text-sm text-gray-800 space-y-2 mb-6">
-          {features.map((feature, index) => (
-            <li key={index}>✓ {feature}</li>
-          ))}
-        </ul>
-        <button className="w-full py-2 bg-[#660000] text-white rounded-xl shadow-md hover:bg-[#4d0000] transition duration-300">
-          Buy
-        </button>
-      </div>
+    <Footer />
     </div>
   );
 }

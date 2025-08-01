@@ -76,6 +76,7 @@ function LocationControl() {
 
   return (
     <div className="leaflet-bottom leaflet-left">
+      
       <div className="leaflet-control leaflet-bar">
         <button 
           onClick={getLocation}

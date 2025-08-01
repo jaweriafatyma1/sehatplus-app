@@ -8,7 +8,7 @@ function Root() {
     <div>
       <Navbar/>
       <Outlet/>
-    <Footer/>
+    {/* <Footer/> */}
 
     
           </div>

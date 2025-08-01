@@ -1,3 +1,4 @@
+// src/main.jsx
 import React from 'react';
 import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
@@ -19,19 +20,23 @@ import AboutUs from './pages/AboutUs.jsx';
 import EmergencyContacts from './pages/EmergnencyContacts.jsx';
 import Login from './pages/login.jsx';
 import Registration from './pages/registration.jsx';
-import UploadReport from './pages/Upload.jsx'; // 📂 Same component
+import UploadReport from './pages/Upload.jsx'; 
 import Alert from './pages/alert.jsx';
 import ContactUs from './pages/contact.jsx';
+import PremiumDashboard from './pages/Prohome.jsx';
 
-// ✅ FIX: Define your routes with consistent and clear paths
+// Add this import
+import { AuthProvider } from '@/context/AuthContext';
+
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/" element={<Root />}>
       <Route path="" element={<Home />} />
       <Route path="premium" element={<PremiumHome />} />
+      <Route path="pro" element={<PremiumDashboard />} />
       <Route path="emergency-patient" element={<EmergencyContacts />} />
       <Route path="map" element={<MapView />} />
-      <Route path="upload-report" element={<UploadReport />} /> {/* ✅ Fixed path */}
+      <Route path="upload-report" element={<UploadReport />} /> 
       <Route path="alert" element={<Alert />} />
       <Route path="about" element={<AboutUs />} />
       <Route path="register" element={<Registration />} />
@@ -43,6 +48,8 @@ const router = createBrowserRouter(
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <RouterProvider router={router} />
+    <AuthProvider>
+      <RouterProvider router={router} />
+    </AuthProvider>
   </StrictMode>
 );

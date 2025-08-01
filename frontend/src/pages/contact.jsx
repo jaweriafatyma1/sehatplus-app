@@ -1,6 +1,6 @@
 import { Mail, Phone, MapPin } from "lucide-react";
 import React, { useState } from "react";
-
+import Footer from "../components/Footer";
 export default function ContactUs() {
   const [toast, setToast] = useState(false);
 
@@ -11,10 +11,11 @@ export default function ContactUs() {
   };
 
   return (
+    <div>
     <div className="bg-gray-100 font-[Poppins]">
 
-
-      {/* 🔹 Top Banner */}
+    <div className="h-24"></div>
+      {/* Top Banner */}
       <div className="bg-[#1f1f1f] py-25 text-center text-white text-4xl font-bold">
         Contact Us
       </div>
@@ -91,6 +92,8 @@ export default function ContactUs() {
           )}
         </form>
       </section>
+    </div>
+     <Footer />
     </div>
   );
 }

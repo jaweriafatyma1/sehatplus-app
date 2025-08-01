@@ -1,18 +1,20 @@
 import React from "react";
-
+import Footer from "../components/Footer";
 export default function Pricing() {
   return (
-<div>
-  <div className="w-screen min-h-screen bg-[#F8F4EC] flex flex-col justify-center items-center font-[Poppins] px-4 mb-15">
+    <div>
+    <div>
+    <div className="h-24"></div>
+    <div className="w-screen min-h-screen bg-[#F8F4EC] flex flex-col justify-center items-center font-[Poppins] px-4 mb-15">
     <h1 className="text-4xl md:text-6xl font-bold text-[#660000] text-center mb-6 tracking-tight leading-tight animate-fadeIn">
       Choose <span className="text-[#A0153E]">Your Health</span> Plan
     </h1>
     <p className="text-lg md:text-xl text-center text-gray-700 max-w-2xl mb-10 animate-fadeIn delay-200">
       Compare features and find the perfect plan for you. Designed to make healthcare easier, faster, and more accessible.
     </p>
-  </div>
+   </div>
 
-  <div className="flex flex-col md:flex-row gap-6 justify-center mb-15 items-center w-full">
+    <div className="flex flex-col md:flex-row gap-6 justify-center mb-15 items-center w-full">
     {/* Basic Care Plan */}
     <div className="w-full h-90 md:w-[300px] bg-white border border-[#991b1b] rounded-2xl shadow-2xl hover:scale-105 transition duration-300 backdrop-blur-md bg-opacity-80">
       <div className="p-6">
@@ -65,7 +67,9 @@ export default function Pricing() {
         <button className="w-full py-2 bg-[#660000] text-white rounded-xl shadow-md hover:bg-[#4d0000] transition duration-300">Get Started</button>
       </div>
     </div>
+    </div>
   </div>
-</div>
+   <Footer />
+    </div>
   );
 }

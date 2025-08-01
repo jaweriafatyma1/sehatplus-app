@@ -1,9 +1,11 @@
 import React from "react";
-
+import Footer from "../components/Footer";
 export default function AboutUs() {
   return (
+    <div>
     <div className="bg-gray-100 font-poppins">
       {/* Top Banner */}
+      <div className="h-24"></div>
       <div className="bg-[#1f1f1f] py-25 text-center text-white text-4xl font-bold">
         About Us
       </div>
@@ -80,10 +82,12 @@ export default function AboutUs() {
         </div>
       </section>
     </div>
+     <Footer />
+    </div>
   );
 }
 
-// ✅ Card Component (Enhanced)
+// Card Component
 function Card({ title, text }) {
   return (
     <div className="bg-white p-8 rounded-2xl shadow-md border border-gray-200 hover:shadow-lg transition-all duration-300 h-full flex flex-col justify-start">

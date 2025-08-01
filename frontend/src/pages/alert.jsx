@@ -5,6 +5,13 @@ export default function Alert() {
   const [emergencyText, setEmergencyText] = useState("");
   const [conditionText, setConditionText] = useState("");
   const [selectedService, setSelectedService] = useState("1122");
+  const [isPremium, setIsPremium] = useState(false); // Add premium state
+
+  useEffect(() => {
+    // Check premium status from localStorage or auth context
+    const userData = JSON.parse(localStorage.getItem('user')) || { isPremium: false };
+    setIsPremium(userData.isPremium);
+  }, []);
 
   // Mock data 
   const emergencyContacts = [
@@ -34,17 +41,17 @@ export default function Alert() {
   return (
     <div className="min-h-screen bg-gradient-to-b from-[#fafafa] to-[#f0f0f0] font-sans">
       {/* banner */}
+      <div className="h-24"></div>
       <div className="w-full bg-gradient-to-r from-[#8B0000] to-[#c00000] py-16 px-6 relative overflow-hidden">
         <div className="absolute inset-0 opacity-10">
           <div className="absolute top-0 left-0 w-full h-full bg-[url('https://img.freepik.com/free-vector/medical-pattern-background-vector-seamless_53876-140729.jpg')] bg-repeat opacity-20"></div>
         </div>
         <div className="max-w-6xl mx-auto text-center relative z-10">
-          
           <h1 className="text-4xl md:text-5xl font-bold text-white mb-4 leading-tight">
             Immediate Medical Assistance
           </h1>
           <p className="text-xl text-[#ffcccc] max-w-2xl mx-auto">
-            Get help fast with our integrated emergency response system
+            {isPremium ? "Premium emergency services" : "Basic emergency access"}
           </p>
         </div>
       </div>
@@ -175,28 +182,49 @@ export default function Alert() {
           <div className="bg-gradient-to-r from-[#8B0000] to-[#a00000] p-6">
             <div className="flex items-center">
               <Phone className="text-white mr-3" size={28} />
-              <h2 className="text-2xl font-bold text-white">Emergency Contacts</h2>
+              <h2 className="text-2xl font-bold text-white">
+                {isPremium ? "Emergency Contacts" : "Emergency Contacts"}
+              </h2>
             </div>
           </div>
           <div className="p-6">
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-              {emergencyContacts.map((contact, index) => (
-                <div key={index} className="bg-[#f8fafc] p-4 rounded-lg border border-[#e2e8f0] hover:border-[#8B0000] transition group">
-                  <div className="flex justify-between items-center">
-                    <div>
-                      <h3 className="font-medium text-gray-800">{contact.name}</h3>
-                      <p className="text-gray-600 text-sm mt-1">{contact.number}</p>
+            {isPremium ? (
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                {emergencyContacts.map((contact, index) => (
+                  <div key={index} className="bg-[#f8fafc] p-4 rounded-lg border border-[#e2e8f0] hover:border-[#8B0000] transition group">
+                    <div className="flex justify-between items-center">
+                      <div>
+                        <h3 className="font-medium text-gray-800">{contact.name}</h3>
+                        <p className="text-gray-600 text-sm mt-1">{contact.number}</p>
+                      </div>
+                      <a 
+                        href={`tel:${contact.number}`} 
+                        className="p-2 bg-white rounded-full shadow-sm group-hover:bg-[#8B0000] group-hover:text-white transition"
+                      >
+                        <Phone className="text-gray-600 group-hover:text-white" size={18} />
+                      </a>
                     </div>
-                    <a 
-                      href={`tel:${contact.number}`} 
-                      className="p-2 bg-white rounded-full shadow-sm group-hover:bg-[#8B0000] group-hover:text-white transition"
-                    >
-                      <Phone className="text-gray-600 group-hover:text-white" size={18} />
-                    </a>
                   </div>
+                ))}
+              </div>
+            ) : (
+              <div className="bg-[#f8fafc] p-8 rounded-lg border-2 border-dashed border-[#e2e8f0] text-center">
+                <div className="max-w-md mx-auto">
+                  <AlertTriangle className="mx-auto text-[#8B0000] mb-4" size={48} />
+                  <h3 className="text-xl font-bold text-gray-800 mb-2">Emergency Contacts Locked</h3>
+                  <p className="text-gray-600 mb-6">Upgrade to premium to access your emergency contacts and additional safety features</p>
+                  <button 
+                    onClick={() => navigate('/upgrade')}
+                    className="bg-gradient-to-r from-[#8B0000] to-[#a00000] text-white py-3 px-8 rounded-lg font-medium hover:brightness-110 transition inline-flex items-center gap-2"
+                  >
+                    <span>Upgrade Now</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                      <path fillRule="evenodd" d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z" clipRule="evenodd" />
+                    </svg>
+                  </button>
                 </div>
-              ))}
-            </div>
+              </div>
+            )}
           </div>
         </div>
       </div>

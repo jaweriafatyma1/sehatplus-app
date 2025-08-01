@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import logo from "../../public/logo.png";
 import login from "../../public/login.png";
 import { useNavigate } from "react-router-dom";
+import Footer from "../components/Footer";
 
 export default function Login() {
   const navigate = useNavigate();
@@ -30,6 +31,8 @@ export default function Login() {
   };
 
   return (
+  <div>
+    <div className="h-24"></div>
     <div className="flex min-h-screen items-center justify-center font-poppins bg-gray-50 py-10">
       <div className="w-1/2 hidden md:block">
         <img
@@ -85,6 +88,8 @@ export default function Login() {
           </div>
         </form>
       </div>
+    </div>
+   <Footer />
     </div>
   );
 }
